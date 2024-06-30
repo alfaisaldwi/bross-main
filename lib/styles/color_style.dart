@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ColorStyle {
   ColorStyle._();
-  static const Color background = Color(0xffF1F1F1);
+  static const Color background = Colors.white;
   static const Color blue = Color(0xff178AF3);
   static const Color secondary = Color(0xffffffff);
   static const Color greenlight = Color(0xffCDD971);
@@ -18,7 +18,6 @@ class ColorStyle {
   static const Color black = Color(0xff000000);
   static const Color bgCart = Color(0xFFEEDFDF);
   static const Color textCart = Color(0xFFC97123);
-
 
   static const Color lightBackground = Color(0xffF1F1F1);
   static const Color lightText = Color(0xff000000);

@@ -1,4 +1,5 @@
 
+import 'package:bross_main/navigation_widget.dart';
 import 'package:bross_main/pages/home.dart';
 import 'package:bross_main/pages/register.dart';
 import 'package:bross_main/styles/color_style.dart';
@@ -108,7 +109,7 @@ class _LoginState extends State<Login> {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const Home()),
+                    MaterialPageRoute(builder: (context) =>  BottomNav()),
                   );
                 },
                 style: ElevatedButton.styleFrom(

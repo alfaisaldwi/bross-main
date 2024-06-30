@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:bross_main/pages/login.dart';
 import 'package:bross_main/styles/color_style.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 1), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const Login()),
@@ -28,11 +29,14 @@ class _SplashScreenState extends State<SplashScreen> {
       // backgroundColor: ColorStyle.background,
       body: Stack(
         children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/background.png"),
-                fit: BoxFit.cover,
+          Transform.scale(
+            scale: 2.0,
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/background.png"),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
