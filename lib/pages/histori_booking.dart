@@ -25,7 +25,7 @@ class _BookingHistoryPageState extends State<BookingHistoryPage> {
     setState(() {
       _isRefreshing = true;
     });
-    await Future.delayed(Duration(seconds: 3)); // Menunggu 3 detik
+    await Future.delayed(Duration(seconds: 3));
     setState(() {
       _isRefreshing = false;
     });
@@ -57,9 +57,7 @@ class _BookingHistoryPageState extends State<BookingHistoryPage> {
       textTheme: const TextTheme(
         bodyLarge: TextStyle(color: ColorStyle.lightText),
         bodyMedium: TextStyle(color: ColorStyle.lightText),
-        // tambahkan gaya teks lainnya sesuai kebutuhan
       ),
-      // tambahkan tema lainnya sesuai kebutuhan
     );
   }
 
@@ -72,9 +70,7 @@ class _BookingHistoryPageState extends State<BookingHistoryPage> {
       textTheme: const TextTheme(
         bodyLarge: TextStyle(color: ColorStyle.darkText),
         bodyMedium: TextStyle(color: ColorStyle.darkText),
-        // tambahkan gaya teks lainnya sesuai kebutuhan
       ),
-      // tambahkan tema lainnya sesuai kebutuhan
     );
   }
 

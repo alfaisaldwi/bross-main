@@ -15,7 +15,7 @@ class _BottomNavState extends State<BottomNav> {
   int currentIndex = 0;
 
   final List<Widget> _children = [
-    Home(),
+    const Home(),
     FavoritePage(),
     BookingHistoryPage(),
   ];
@@ -38,14 +38,14 @@ class _BottomNavState extends State<BottomNav> {
         items: [
           // ignore: prefer_const_constructors
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
             label: 'Favorit',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.compare_arrows),
             label: 'Histori',
           ),

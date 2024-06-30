@@ -40,7 +40,7 @@ class _BookingPageState extends State<BookingPage> {
     setState(() {
       _isRefreshing = true;
     });
-    await Future.delayed(Duration(seconds: 3)); // Menunggu 3 detik
+    await Future.delayed(const Duration(seconds: 3));
     setState(() {
       _isRefreshing = false;
     });
@@ -72,9 +72,7 @@ class _BookingPageState extends State<BookingPage> {
       textTheme: const TextTheme(
         bodyLarge: TextStyle(color: ColorStyle.lightText),
         bodyMedium: TextStyle(color: ColorStyle.lightText),
-        // tambahkan gaya teks lainnya sesuai kebutuhan
       ),
-      // tambahkan tema lainnya sesuai kebutuhan
     );
   }
 
@@ -87,9 +85,9 @@ class _BookingPageState extends State<BookingPage> {
       textTheme: const TextTheme(
         bodyLarge: TextStyle(color: ColorStyle.darkText),
         bodyMedium: TextStyle(color: ColorStyle.darkText),
-        // tambahkan gaya teks lainnya sesuai kebutuhan
+       
       ),
-      // tambahkan tema lainnya sesuai kebutuhan
+     
     );
   }
 
@@ -116,13 +114,13 @@ class _BookingPageState extends State<BookingPage> {
               width: double.infinity,
               fit: BoxFit.cover,
             ),
-            SizedBox(height: 16),
-            Text('Pilih Tanggal'),
+            const SizedBox(height: 16),
+            const Text('Pilih Tanggal'),
             ListTile(
               title: Text(
                 '${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year}',
               ),
-              trailing: Icon(Icons.calendar_today),
+              trailing: const Icon(Icons.calendar_today),
               onTap: () async {
                 final DateTime? picked = await showDatePicker(
                   context: context,
@@ -137,35 +135,35 @@ class _BookingPageState extends State<BookingPage> {
                 }
               },
             ),
-            SizedBox(height: 16),
-            Text('Deskripsi'),
+            const SizedBox(height: 16),
+            const Text('Deskripsi'),
             TextField(
               controller: _descriptionController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Masukkan deskripsi booking',
                 border: OutlineInputBorder(),
               ),
               maxLines: 3,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
                     return AlertDialog(
-                      title: Text('Booking'),
-                      content: Text('Apakah Anda ingin melakukan booking?'),
+                      title: const Text('Booking'),
+                      content: const Text('Apakah Anda ingin melakukan booking?'),
                       actions: [
                         TextButton(
                           onPressed: () {
                             Navigator.of(context).pop();
                           },
-                          child: Text('Batal'),
+                          child: const Text('Batal'),
                         ),
                         TextButton(
                           onPressed: () {
-                            // Action untuk booking
+                         
                             BookingHistory.addBooking(
                               Booking(
                                 image: widget.image,
@@ -177,14 +175,14 @@ class _BookingPageState extends State<BookingPage> {
                             Navigator.of(context).pop();
                             Navigator.of(context).pop();
                           },
-                          child: Text('Booking'),
+                          child: const Text('Booking'),
                         ),
                       ],
                     );
                   },
                 );
               },
-              child: Text('Booking'),
+              child: const Text('Booking'),
             ),
           ],
         ),

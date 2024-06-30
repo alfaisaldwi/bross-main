@@ -18,7 +18,7 @@ class _RegisterState extends State<Register> {
 
   @override
   void initState() {
-    dateInput.text = ""; //set the initial value of text field
+    dateInput.text = "";
     super.initState();
   }
 
@@ -90,30 +90,24 @@ class _RegisterState extends State<Register> {
                   ),
                   child: TextField(
                     controller: dateInput,
-
                     decoration: InputDecoration(
                         icon: Icon(Icons.calendar_today),
                         labelText: dateInput.text != '' ? '' : "Birth Date"),
                     readOnly: true,
-                    //set it true, so that user will not able to edit text
                     onTap: () async {
                       DateTime? pickedDate = await showDatePicker(
                           context: context,
                           initialDate: DateTime.now(),
                           firstDate: DateTime(1950),
-                          //DateTime.now() - not to allow to choose before today.
                           lastDate: DateTime(2100));
 
                       if (pickedDate != null) {
-                        print(
-                            pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                        print(pickedDate);
                         String formattedDate =
                             DateFormat('yyyy-MM-dd').format(pickedDate);
-                        print(
-                            formattedDate); //formatted date output using intl package =>  2021-03-16
+                        print(formattedDate);
                         setState(() {
-                          dateInput.text =
-                              formattedDate; //set output date to TextField value.
+                          dateInput.text = formattedDate;
                         });
                       } else {}
                     },

@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
     setState(() {
       _isRefreshing = true;
     });
-    await Future.delayed(Duration(seconds: 3)); // Menunggu 3 detik
+    await Future.delayed(const Duration(seconds: 3));
     setState(() {
       _isRefreshing = false;
     });
@@ -62,9 +62,7 @@ class _HomeState extends State<Home> {
       textTheme: const TextTheme(
         bodyLarge: TextStyle(color: ColorStyle.lightText),
         bodyMedium: TextStyle(color: ColorStyle.lightText),
-        // tambahkan gaya teks lainnya sesuai kebutuhan
       ),
-      // tambahkan tema lainnya sesuai kebutuhan
     );
   }
 
@@ -77,9 +75,7 @@ class _HomeState extends State<Home> {
       textTheme: const TextTheme(
         bodyLarge: TextStyle(color: ColorStyle.darkText),
         bodyMedium: TextStyle(color: ColorStyle.darkText),
-        // tambahkan gaya teks lainnya sesuai kebutuhan
       ),
-      // tambahkan tema lainnya sesuai kebutuhan
     );
   }
 
@@ -237,7 +233,7 @@ class _HomeState extends State<Home> {
                   child: Container(
                       margin: const EdgeInsets.only(top: 130),
                       width: 320,
-                      height: 40, // Ganti ukuran yang diperlukan
+                      height: 40,
                       padding: const EdgeInsets.symmetric(
                           horizontal: 12, vertical: 0),
                       decoration: ShapeDecoration(
@@ -298,7 +294,7 @@ class _HomeState extends State<Home> {
                         fontSize: 16,
                         color: _isDarkMode
                             ? ColorStyle.darkText
-                            : Color.fromARGB(255, 190, 123, 30)),
+                            : const Color.fromARGB(255, 190, 123, 30)),
                   ),
                   IconButton(
                     icon: const Icon(
@@ -313,7 +309,7 @@ class _HomeState extends State<Home> {
             _isRefreshing
                 ? Container(
                     height: 400,
-                    child: Align(
+                    child: const Align(
                         alignment: Alignment.center,
                         child: Center(
                             child: CircularProgressIndicator(
@@ -330,7 +326,7 @@ class _HomeState extends State<Home> {
                           autoPlayCurve: Curves.fastOutSlowIn,
                           enableInfiniteScroll: true,
                           autoPlayAnimationDuration:
-                              Duration(milliseconds: 800),
+                              const Duration(milliseconds: 800),
                           viewportFraction: 1,
                         ),
                         items: products.map((product) {
@@ -340,7 +336,7 @@ class _HomeState extends State<Home> {
                                 children: [
                                   Image.asset(product['imagePath'],
                                       fit: BoxFit.fitWidth, height: 140),
-                                  SizedBox(height: 10),
+                                  const SizedBox(height: 10),
                                   Text(
                                     product['name'],
                                     style: TextStyle(
@@ -348,7 +344,7 @@ class _HomeState extends State<Home> {
                                         fontWeight: FontWeight.bold,
                                         color: _isDarkMode
                                             ? ColorStyle.darkText
-                                            : Color.fromARGB(
+                                            : const Color.fromARGB(
                                                 255, 190, 123, 30)),
                                   ),
                                 ],
@@ -363,7 +359,7 @@ class _HomeState extends State<Home> {
                         child: SizedBox(
                           child: GridView.builder(
                               shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
+                              physics: const NeverScrollableScrollPhysics(),
                               padding: const EdgeInsets.all(10),
                               gridDelegate:
                                   const SliverGridDelegateWithFixedCrossAxisCount(

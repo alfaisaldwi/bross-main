@@ -27,7 +27,7 @@ class _FavoritePageState extends State<FavoritePage> {
     setState(() {
       _isRefreshing = true;
     });
-    await Future.delayed(Duration(seconds: 3)); // Menunggu 3 detik
+    await Future.delayed(const Duration(seconds: 3)); 
     setState(() {
       _isRefreshing = false;
     });
@@ -59,9 +59,7 @@ class _FavoritePageState extends State<FavoritePage> {
       textTheme: const TextTheme(
         bodyLarge: TextStyle(color: ColorStyle.lightText),
         bodyMedium: TextStyle(color: ColorStyle.lightText),
-        // tambahkan gaya teks lainnya sesuai kebutuhan
       ),
-      // tambahkan tema lainnya sesuai kebutuhan
     );
   }
 
@@ -74,9 +72,7 @@ class _FavoritePageState extends State<FavoritePage> {
       textTheme: const TextTheme(
         bodyLarge: TextStyle(color: ColorStyle.darkText),
         bodyMedium: TextStyle(color: ColorStyle.darkText),
-        // tambahkan gaya teks lainnya sesuai kebutuhan
       ),
-      // tambahkan tema lainnya sesuai kebutuhan
     );
   }
 
@@ -134,9 +130,20 @@ class _FavoritePageState extends State<FavoritePage> {
                   ),
                   title: Text(product.name),
                   subtitle: Text(product.address),
-                  onTap: () {
-                    // Implement navigation to product detail if needed
-                  },
+                  trailing: IconButton(
+                    icon: const Icon(Icons.delete),
+                    onPressed: () {
+                      PlaceDetail.favoriteProducts.removeAt(index);
+                      setState(() {});
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Tempat dihapus dari Favorit'),
+                          duration: Duration(seconds: 1),
+                        ),
+                      );
+                    },
+                  ),
+                  onTap: () {},
                 );
               },
             ),

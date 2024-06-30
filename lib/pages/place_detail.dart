@@ -20,7 +20,6 @@ class PlaceDetail extends StatefulWidget {
     required this.isDarkMode,
   }) : super(key: key);
 
-  // List untuk menyimpan produk favorit
   static List<Product> favoriteProducts = [];
 
   @override
@@ -49,8 +48,8 @@ class _PlaceDetailState extends State<PlaceDetail> {
             ),
           );
         },
-        label: Text('Booking'),
-        icon: Icon(Icons.check_circle_outline_outlined),
+        label: const Text('Booking'),
+        icon: const Icon(Icons.check_circle_outline_outlined),
         backgroundColor: !widget.isDarkMode
             ? ColorStyle.darkPrimary
             : ColorStyle.lightPrimary,
@@ -59,7 +58,7 @@ class _PlaceDetailState extends State<PlaceDetail> {
       appBar: AppBar(
         title: Text(
           widget.name,
-          style: TextStyle(fontSize: 18),
+          style: const TextStyle(fontSize: 18),
         ),
         backgroundColor: widget.isDarkMode
             ? ColorStyle.lightPrimary
@@ -112,18 +111,18 @@ class _PlaceDetailState extends State<PlaceDetail> {
                           context: context,
                           builder: (BuildContext context) {
                             return Container(
-                              padding: EdgeInsets.all(16),
+                              padding: const EdgeInsets.all(16),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
-                                  Text('Sukses'),
-                                  SizedBox(height: 8),
-                                  Text(
+                                  const Text('Sukses'),
+                                  const SizedBox(height: 8),
+                                  const Text(
                                       'Tempat ini berhasil ditambahkan ke Favorit.'),
-                                  SizedBox(height: 16),
+                                  const SizedBox(height: 16),
                                   ElevatedButton(
                                     onPressed: () => Navigator.pop(context),
-                                    child: Text('Oke'),
+                                    child: const Text('Oke'),
                                   ),
                                 ],
                               ),
@@ -139,7 +138,7 @@ class _PlaceDetailState extends State<PlaceDetail> {
                       } else {
                         PlaceDetail.favoriteProducts.removeWhere(
                             (product) => product.name == widget.name);
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           duration: Duration(milliseconds: 500),
                           content: Center(
                               child: Text('Tempat dihapus dari Favorit')),
@@ -152,7 +151,7 @@ class _PlaceDetailState extends State<PlaceDetail> {
                               .any((product) => product.name == widget.name)
                           ? 'Hapus dari Favorit'
                           : 'Tambah ke Favorit',
-                      style: TextStyle(color: ColorStyle.dark),
+                      style: const TextStyle(color: ColorStyle.dark),
                     ),
                   ),
                   const SizedBox(height: 5),
@@ -170,7 +169,7 @@ class _PlaceDetailState extends State<PlaceDetail> {
                       itemCount: reviews.length,
                       itemBuilder: (context, index) {
                         return Container(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               vertical: 10, horizontal: 20),
                           child: Row(
                             children: [
@@ -182,20 +181,20 @@ class _PlaceDetailState extends State<PlaceDetail> {
                                   borderRadius: BorderRadius.circular(30),
                                 ),
                               ),
-                              SizedBox(width: 20),
+                              const SizedBox(width: 20),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     reviews[index].name,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.w700,
                                     ),
                                   ),
                                   Text(
                                     reviews[index].review,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.w300,
                                     ),
@@ -203,7 +202,7 @@ class _PlaceDetailState extends State<PlaceDetail> {
                                   Row(
                                     children: List.generate(
                                       reviews[index].rating,
-                                      (i) => Icon(
+                                      (i) => const Icon(
                                         Icons.star,
                                         color: Colors.yellow,
                                         size: 20,
